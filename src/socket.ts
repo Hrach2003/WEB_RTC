@@ -17,7 +17,19 @@ enum _ {
 
 export const initWebSocket = (server: http.Server) => {
 
+
   const io = socket(server)
+
+  io.use((socket, next) => {
+    let handshakeData = socket.request;
+    console.log(handshakeData.headers)
+    // make sure the handshake data looks good as before
+    // if error do this:
+      // next(new Error('not authorized'));
+    // else just call next
+    next();
+  });
+
   io.on(_.START, socket => {
     // socket.emit('hello') // works
     consola.info({ message: 'a user connected' });

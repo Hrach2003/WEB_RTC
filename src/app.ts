@@ -14,17 +14,6 @@ import { connectToDB } from "./helpers/DB";
 import dotenv from 'dotenv'
 dotenv.config()
 
-
-// const REDIS_PORT = process.env.REDIS_PORT as string
-// const client = redis.createClient(REDIS_PORT)
-
-// client.on("error", function(error) {
-//   console.error(error);
-// });
-
-// client.SET('ar', '10', redis.print)
-// console.log(client.GET('ar', redis.print))
-
 const app = express()
 const server = http.createServer(app);
 
